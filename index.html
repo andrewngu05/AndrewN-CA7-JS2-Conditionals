@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="author" content="Andrew Nguyen">
+        <title>Bear Hunter Ninja</title>
+    </head>
+    <body>
+        
+        <p id="playerResult"></p>
+        <p id="computerResult"></p>
+        <p id="winnerResult"></p>
+        <script>
+            //Asks for the name of the player using a prompt
+            let playerName = prompt(`Welcome to Bear Hunter Ninja! Please enter your name to get started: `);
+
+            //Says Hi to the player with their name
+            let welcomeMessage = `Hi ${playerName} Let\'s Play!!`;
+            alert(welcomeMessage);
+
+            //Lets player choose their character
+            let playerChoice = prompt('Who are you: Bear, Ninja, or Hunter?');
+
+            //The computers choice hard coded
+            let computerChoice = 'Bear';
+
+            //Puts all the variables together to create a message stating the player and computers choices
+            let playerMessage = `${playerName} you chose ` + playerChoice + '!';
+            let computerMessage = 'The computer chose ' + computerChoice + '!';
+
+            //To display who won
+            let winnerMessage = '';
+
+            //Using a switch for the players choice so that we can compare the player and computers choice and decide a winner
+            switch (playerChoice) {
+                //if the computer picks bear as well its a tie, if the computer picks ninja player wins, otherwise if the computer picks hunter the computer wins
+                case 'Bear':
+                    if(computerChoice === 'Bear') {
+                        winnerMessage = "It's a Tie!!";
+
+                    }else if(computerChoice === 'Ninja') {
+                        winnerMessage = 'You Win!!';
+
+                    }else {
+                        winnerMessage = "Computer Wins!!";
+                    }
+                    break;
+
+                //if player chooses ninja and computer chooses ninja then its a tie, if the computer chooses hunter player wins, otherwise if computer chooses bear computer wins
+                case 'Ninja':
+                    if(computerChoice === 'Ninja') {
+                        winnerMessage = "It's a Tie!!";
+
+                    }else if(computerChoice === 'Hunter') {
+                        winnerMessage = 'You Win!!';
+
+                    }else {
+                        winnerMessage = 'Computer Wins!!';
+
+                    }
+                    break;
+
+                //If player picks Hunter and computer does the same then its a tie, if the computer picks bear player wins, otherwise if computer picks ninja the computer wins
+                case 'Hunter':
+                    if(computerChoice === 'Hunter') {
+                        winnerMessage = "It's a Tie!!";
+
+                    }else if(computerChoice === 'Bear') {
+                        winnerMessage = 'You Win!!';
+
+                    }else{
+                        winnerMessage = 'Computer Wins!!';
+                    }
+                    break;
+            }
+
+            //Displays message on the html page
+            document.getElementById('playerResult').innerHTML = playerMessage;
+            document.getElementById('computerResult').innerHTML = computerMessage;
+            document.getElementById('winnerResult').innerHTML = winnerMessage;
+
+            //Displays message on console 
+            console.log(playerMessage);
+            console.log(computerMessage);
+            console.log(winnerMessage);
+        </script>
+    </body>
+</html>
